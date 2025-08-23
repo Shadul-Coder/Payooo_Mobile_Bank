@@ -69,7 +69,6 @@ document
     const bankAccNum = document.querySelector(`#BankAccNum`).value;
     const amount = parseInt(document.querySelector(`#AddMoney #Amount`).value);
     const pin = parseInt(document.querySelector(`#AddMoney #Pin`).value);
-    console.log(bank, bankAccNum, amount, pin);
     if (
       bank !== `Select Bank` &&
       bankAccNum.length === 11 &&
@@ -96,5 +95,44 @@ document
       }
       p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
       document.querySelector(`#AddMoney form`).appendChild(p);
+    }
+  });
+
+document
+  .querySelector(`#CashOutSubmit`)
+  .addEventListener(`click`, function (event) {
+    event.preventDefault();
+    const invalid = document.querySelector(`#CashOut form p`);
+    if (invalid) {
+      document.querySelector(`#CashOut form`).removeChild(invalid);
+    }
+    const agentNum = document.querySelector(`#AgentNum`).value;
+    const amount = parseInt(document.querySelector(`#CashOut #Amount`).value);
+    const pin = parseInt(document.querySelector(`#CashOut #Pin`).value);
+    const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
+    if (
+      agentNum.length === 11 &&
+      amount > 0 &&
+      amount <= currentMoney &&
+      pin === 2025
+    ) {
+      document.querySelector(`#Money`).innerText = currentMoney - amount;
+      document.querySelector(`#AgentNum`).value = ``;
+      document.querySelector(`#CashOut #Amount`).value = ``;
+      document.querySelector(`#CashOut #Pin`).value = ``;
+      alert(`Amount Withdrawn`);
+    } else {
+      let p = document.createElement(`p`);
+      if (agentNum.length !== 11) {
+        p.innerText = `Invalid Agent Number`;
+      } else if (isNaN(amount) || amount < 1) {
+        p.innerText = `Invalid Amount`;
+      } else if (pin !== 2025) {
+        p.innerText = `Invalid PIN`;
+      } else {
+        p.innerText = `Insufficient Balance`;
+      }
+      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
+      document.querySelector(`#CashOut form`).appendChild(p);
     }
   });
