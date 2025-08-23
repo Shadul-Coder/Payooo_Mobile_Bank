@@ -10,21 +10,23 @@
   <body
     class="bg-[#f4f5f7] mt-[39%] flex flex-col items-center sm:h-[100vh] sm:justify-center sm:mt-0"
   >
-    <div class="h-[90px] w-[235px] bg-[url(Images/Background.png)] bg-cover">
+    <div
+      class="h-[90px] max-w-sm w-[70%] bg-[url(Images/Background.png)] bg-cover"
+    >
       <img
         src="Images/Logo.png"
         alt="Payooo Logo"
         class="mx-auto mt-5 h-[55px]"
       />
     </div>
-    <form class="bg-white px-7 py-5 rounded-4xl">
+    <form class="bg-white max-w-sm w-[90%] px-7 py-5 rounded-4xl">
       <div>
         <label for="Number" class="text-[13px] ml-3">Mobile Number</label><br />
         <input
           type="number"
           id="Number"
           placeholder="Enter Your Number"
-          class="w-[235px] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-1 focus:outline-none sm:w-[300px]"
+          class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-1 focus:outline-none"
         />
       </div>
       <div>
@@ -33,14 +35,14 @@
           type="number"
           id="Pin"
           placeholder="Enter 4 Digit PIN"
-          class="w-[235px] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none sm:w-[300px]"
+          class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
         />
       </div>
       <input
         type="submit"
         value="Login"
         id="login-button"
-        class="w-[235px] bg-[#0874f2] text-white py-3 rounded-3xl active:bg-[#0874f2bf] sm:w-[300px]"
+        class="w-[100%] bg-[#0874f2] text-white py-3 rounded-3xl active:bg-[#0874f2bf]"
       />
     </form>
     <script src="JS/login.js"></script>

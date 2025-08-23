@@ -15,7 +15,7 @@
     <title>Payooo - Mobile Bank</title>
   </head>
   <body class="bg-[#f4f5f7]">
-    <section class="bg-white max-w-sm mx-auto pb-3.5 rounded-b-2xl">
+    <section id="home" class="bg-white max-w-sm mx-auto pb-3.5 rounded-b-2xl">
       <nav class="py-3 border-b-1 border-[#0808081a]">
         <div class="w-[95%] mx-auto flex justify-between items-center">
           <div class="flex items-center gap-1">
@@ -40,32 +40,250 @@
           processing.
         </p>
         <div class="mt-7 grid grid-cols-3 gap-3">
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="AddMoneyBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/AddMoney.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Add Money</h1>
           </div>
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="CashOutBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/CashOut.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Cash Out</h1>
           </div>
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="TransferMoneyBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/TransferMoney.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Transfer Money</h1>
           </div>
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="GetBonusBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/GetBonus.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Get Bonus</h1>
           </div>
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="PayBillBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/PayBill.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Pay Bill</h1>
           </div>
-          <div class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div id="TransactionBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
             <img src="Images/Transaction.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Transaction</h1>
           </div>
         </div>
       </div>
+    </section>
+    <section id="AddMoney" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+      <h1 class="font-semibold ml-3 mb-3">Add Money</h1>
+      <form
+        class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
+      >
+        <select
+          name=""
+          id="Bank"
+          class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none appearance-none"
+        >
+          <option selected disabled value="">Select Bank</option>
+          <option value="">Islami Bank Bangladesh</option>
+          <option value="">BRAC Bank Limited</option>
+          <option value="">Dutch-Bangla Bank</option>
+          <option value="">Sonali Bank Limited</option>
+          <option value="">City Bank Limited</option>
+        </select>
+        <i class="fa-solid fa-angle-down absolute right-11.5 top-10.5"></i>
+        <div class="w-[100%]">
+          <label for="BankAccNum" class="text-[13px] ml-3"
+            >Bank Account Number</label
+          ><br />
+          <input
+            type="number"
+            id="BankAccNum"
+            placeholder="Enter 11 digit account number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Amount" class="text-[13px] ml-3">Amount to Add</label
+          ><br />
+          <input
+            type="number"
+            id="Amount"
+            placeholder="Enter amount to add"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Pin" class="text-[13px] ml-3">PIN Number</label><br />
+          <input
+            type="number"
+            id="Pin"
+            placeholder="Enter 4 digit PIN number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Add Money"
+          id="login-button"
+          class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
+        />
+      </form>
+    </section>
+    <section id="CashOut" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+      <h1 class="font-semibold ml-3 mb-3">Cash Out</h1>
+      <form
+        class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
+      >
+        <div class="w-[100%]">
+          <label for="AgentNum" class="text-[13px] ml-3">Agent Number</label
+          ><br />
+          <input
+            type="number"
+            id="AgentNum"
+            placeholder="Enter 11 digit number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Amount" class="text-[13px] ml-3">Amount</label><br />
+          <input
+            type="number"
+            id="Amount"
+            placeholder="Enter amount to withdraw"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Pin" class="text-[13px] ml-3">PIN Number</label><br />
+          <input
+            type="number"
+            id="Pin"
+            placeholder="Enter 4 digit PIN number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Withdraw Money"
+          id="login-button"
+          class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
+        />
+      </form>
+    </section>
+    <section id="TransferMoney" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+      <h1 class="font-semibold ml-3 mb-3">Transfer Money</h1>
+      <form
+        class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
+      >
+        <div class="w-[100%]">
+          <label for="UserAccNum" class="text-[13px] ml-3"
+            >User Account Number</label
+          ><br />
+          <input
+            type="number"
+            id="UserAccNum"
+            placeholder="Enter 11 digit number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Amount" class="text-[13px] ml-3">Amount</label><br />
+          <input
+            type="number"
+            id="Amount"
+            placeholder="Enter amount to transfer"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Pin" class="text-[13px] ml-3">PIN Number</label><br />
+          <input
+            type="number"
+            id="Pin"
+            placeholder="Enter 4 digit PIN number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Send Now"
+          id="login-button"
+          class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
+        />
+      </form>
+    </section>
+    <section id="GetBonus" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+      <h1 class="font-semibold ml-3 mb-3">Get Bonus</h1>
+      <form
+        class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
+      >
+        <div class="w-[100%]">
+          <label for="Coupon" class="text-[13px] ml-3">Enter Bonus Coupon</label
+          ><br />
+          <input
+            type="text"
+            id="Coupon"
+            placeholder="Enter your coupon"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Get Bonus"
+          id="login-button"
+          class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
+        />
+      </form>
+    </section>
+    <section id="PayBill" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+      <h1 class="font-semibold ml-3 mb-3">Pay Bill</h1>
+      <form
+        class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
+      >
+        <select
+          name=""
+          id="Bill"
+          class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none appearance-none"
+        >
+          <option selected disabled value="">Select Bill Type</option>
+          <option value="">Electricity Service Bill</option>
+          <option value="">Water Utility Bill</option>
+          <option value="">Gas Supply Bill</option>
+          <option value="">Internet Service Bill</option>
+          <option value="">Mobile Phone Bill</option>
+        </select>
+        <i class="fa-solid fa-angle-down absolute right-11.5 top-10.5"></i>
+        <div class="w-[100%]">
+          <label for="AccNum" class="text-[13px] ml-3"
+            >Biller Account Number</label
+          ><br />
+          <input
+            type="number"
+            id="AccNum"
+            placeholder="Enter account number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Amount" class="text-[13px] ml-3">Amount to Pay</label
+          ><br />
+          <input
+            type="number"
+            id="Amount"
+            placeholder="Enter amount to pay"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <div class="w-[100%]">
+          <label for="Pin" class="text-[13px] ml-3">PIN Number</label><br />
+          <input
+            type="number"
+            id="Pin"
+            placeholder="Enter 4 digit PIN number"
+            class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Pay Now"
+          id="login-button"
+          class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
+        />
+      </form>
     </section>
     <script src="JS/home.js"></script>
   </body>
