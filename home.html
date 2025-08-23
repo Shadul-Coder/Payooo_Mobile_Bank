@@ -26,6 +26,7 @@
             </div>
           </div>
           <button
+            id="LogOut"
             class="text-[#08080880] text-[15px] border-1 border-[#0808081a] px-2 py-1.5 rounded-2xl active:bg-[#0808080d]"
           >
             <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log
@@ -40,34 +41,55 @@
           processing.
         </p>
         <div class="mt-7 grid grid-cols-3 gap-3">
-          <div id="AddMoneyBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="AddMoneyBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/AddMoney.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Add Money</h1>
           </div>
-          <div id="CashOutBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="CashOutBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/CashOut.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Cash Out</h1>
           </div>
-          <div id="TransferMoneyBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="TransferMoneyBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/TransferMoney.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Transfer Money</h1>
           </div>
-          <div id="GetBonusBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="GetBonusBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/GetBonus.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Get Bonus</h1>
           </div>
-          <div id="PayBillBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="PayBillBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/PayBill.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Pay Bill</h1>
           </div>
-          <div id="TransactionBTN" class="text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl">
+          <div
+            id="TransactionBTN"
+            class="BTN text-[15px] border-1 border-[#0808081a] py-5 rounded-2xl"
+          >
             <img src="Images/Transaction.png" alt="" class="mx-auto" />
             <h1 class="text-center text-[13px] mt-2">Transaction</h1>
           </div>
         </div>
       </div>
     </section>
-    <section id="AddMoney" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+    <section
+      id="AddMoney"
+      class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto"
+    >
       <h1 class="font-semibold ml-3 mb-3">Add Money</h1>
       <form
         class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
@@ -164,7 +186,10 @@
         />
       </form>
     </section>
-    <section id="TransferMoney" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+    <section
+      id="TransferMoney"
+      class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto"
+    >
       <h1 class="font-semibold ml-3 mb-3">Transfer Money</h1>
       <form
         class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
@@ -206,7 +231,10 @@
         />
       </form>
     </section>
-    <section id="GetBonus" class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto">
+    <section
+      id="GetBonus"
+      class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto"
+    >
       <h1 class="font-semibold ml-3 mb-3">Get Bonus</h1>
       <form
         class="bg-white flex flex-col items-center p-7 rounded-3xl relative"
@@ -280,7 +308,7 @@
         <input
           type="submit"
           value="Pay Now"
-          id="login-button"
+          id="PayBillSubmit"
           class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
         />
       </form>

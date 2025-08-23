@@ -1,63 +1,118 @@
-document.querySelector(`#AddMoneyBTN`).addEventListener(`click`, function () {
-  const menuList = document.querySelectorAll(`.BTNMenu`);
-  for (menu of menuList) {
-    menu.classList.add(`hidden`);
-  }
-  const addMoneyMenu = document.querySelector(`#AddMoney`);
-  addMoneyMenu.classList.remove(`hidden`);
-});
+document
+  .querySelector(`#AddMoneyBTN`)
+  .addEventListener(`click`, function (event) {
+    const menuList = document.querySelectorAll(`.BTNMenu`);
+    for (menu of menuList) {
+      menu.classList.add(`hidden`);
+    }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
+    }
+    const addMoneyMenu = document.querySelector(`#AddMoney`);
+    addMoneyMenu.classList.remove(`hidden`);
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
+  });
 
-document.querySelector(`#CashOutBTN`).addEventListener(`click`, function () {
-  const menuList = document.querySelectorAll(`.BTNMenu`);
-  for (menu of menuList) {
-    menu.classList.add(`hidden`);
-  }
-  const cashOutMenu = document.querySelector(`#CashOut`);
-  cashOutMenu.classList.remove(`hidden`);
-});
+document
+  .querySelector(`#CashOutBTN`)
+  .addEventListener(`click`, function (event) {
+    const menuList = document.querySelectorAll(`.BTNMenu`);
+    for (menu of menuList) {
+      menu.classList.add(`hidden`);
+    }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
+    }
+    const cashOutMenu = document.querySelector(`#CashOut`);
+    cashOutMenu.classList.remove(`hidden`);
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
+  });
 
 document
   .querySelector(`#TransferMoneyBTN`)
-  .addEventListener(`click`, function () {
+  .addEventListener(`click`, function (event) {
     const menuList = document.querySelectorAll(`.BTNMenu`);
     for (menu of menuList) {
       menu.classList.add(`hidden`);
+    }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
     }
     const transferMoneyMenu = document.querySelector(`#TransferMoney`);
     transferMoneyMenu.classList.remove(`hidden`);
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
   });
 
-document.querySelector(`#GetBonusBTN`).addEventListener(`click`, function () {
-  const menuList = document.querySelectorAll(`.BTNMenu`);
-  for (menu of menuList) {
-    menu.classList.add(`hidden`);
-  }
-  const getBonusMenu = document.querySelector(`#GetBonus`);
-  getBonusMenu.classList.remove(`hidden`);
-});
-
-document.querySelector(`#PayBillBTN`).addEventListener(`click`, function () {
-  const menuList = document.querySelectorAll(`.BTNMenu`);
-  for (menu of menuList) {
-    menu.classList.add(`hidden`);
-  }
-  const payBillMenu = document.querySelector(`#PayBill`);
-  payBillMenu.classList.remove(`hidden`);
-});
-
 document
-  .querySelector(`#TransactionBTN`)
-  .addEventListener(`click`, function () {
+  .querySelector(`#GetBonusBTN`)
+  .addEventListener(`click`, function (event) {
     const menuList = document.querySelectorAll(`.BTNMenu`);
     for (menu of menuList) {
       menu.classList.add(`hidden`);
     }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
+    }
+    const getBonusMenu = document.querySelector(`#GetBonus`);
+    getBonusMenu.classList.remove(`hidden`);
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
   });
+
+document
+  .querySelector(`#PayBillBTN`)
+  .addEventListener(`click`, function (event) {
+    const menuList = document.querySelectorAll(`.BTNMenu`);
+    for (menu of menuList) {
+      menu.classList.add(`hidden`);
+    }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
+    }
+    const payBillMenu = document.querySelector(`#PayBill`);
+    payBillMenu.classList.remove(`hidden`);
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
+  });
+
+document
+  .querySelector(`#TransactionBTN`)
+  .addEventListener(`click`, function (event) {
+    const menuList = document.querySelectorAll(`.BTNMenu`);
+    for (menu of menuList) {
+      menu.classList.add(`hidden`);
+    }
+    const btnList = document.querySelectorAll(`.BTN`);
+    for (btn of btnList) {
+      btn.style.borderColor = "#0808081a";
+      btn.style.color = "black";
+    }
+    event.currentTarget.style.borderColor = "#0874f2";
+    event.currentTarget.style.color = "#0874f2";
+  });
+
+document.querySelector(`#LogOut`).addEventListener(`click`, function () {
+  window.location.href = "index.html";
+});
 
 document
   .querySelector(`#AddMoneySubmit`)
   .addEventListener(`click`, function (event) {
     event.preventDefault();
+
     const invalid = document.querySelector(`#AddMoney form p`);
     if (invalid) {
       document.querySelector(`#AddMoney form`).removeChild(invalid);
@@ -175,5 +230,52 @@ document
       }
       p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
       document.querySelector(`#TransferMoney form`).appendChild(p);
+    }
+  });
+
+document
+  .querySelector(`#PayBillSubmit`)
+  .addEventListener(`click`, function (event) {
+    event.preventDefault();
+    const invalid = document.querySelector(`#PayBill form p`);
+    if (invalid) {
+      document.querySelector(`#PayBill form`).removeChild(invalid);
+    }
+    const bill =
+      document.querySelector(`#Bill`).options[
+        document.querySelector(`#Bill`).selectedIndex
+      ].text;
+    const billerAccNum = document.querySelector(`#AccNum`).value;
+    const amount = parseInt(document.querySelector(`#PayBill #Amount`).value);
+    const pin = parseInt(document.querySelector(`#PayBill #Pin`).value);
+    const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
+    if (
+      bill !== `Select Bill Type` &&
+      billerAccNum.length === 11 &&
+      amount > 0 &&
+      amount <= currentMoney &&
+      pin === 2025
+    ) {
+      document.querySelector(`#Money`).innerText = currentMoney - amount;
+      document.querySelector(`#Bill`).selectedIndex = 0;
+      document.querySelector(`#AccNum`).value = ``;
+      document.querySelector(`#PayBill #Amount`).value = ``;
+      document.querySelector(`#PayBill #Pin`).value = ``;
+      alert(`Bill Payed Successfully`);
+    } else {
+      let p = document.createElement(`p`);
+      if (bill === `Select Bill Type`) {
+        p.innerText = `Select Bill Type`;
+      } else if (billerAccNum.length !== 11) {
+        p.innerText = `Invalid Account Number`;
+      } else if (isNaN(amount) || amount < 1) {
+        p.innerText = `Invalid Amount`;
+      } else if (pin !== 2025) {
+        p.innerText = `Invalid PIN`;
+      } else {
+        p.innerText = `Insufficient Balance`;
+      }
+      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
+      document.querySelector(`#PayBill form`).appendChild(p);
     }
   });
