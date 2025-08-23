@@ -136,3 +136,44 @@ document
       document.querySelector(`#CashOut form`).appendChild(p);
     }
   });
+
+document
+  .querySelector(`#TransferSubmit`)
+  .addEventListener(`click`, function (event) {
+    event.preventDefault();
+    const invalid = document.querySelector(`#TransferMoney form p`);
+    if (invalid) {
+      document.querySelector(`#TransferMoney form`).removeChild(invalid);
+    }
+    const userNum = document.querySelector(`#UserAccNum`).value;
+    const amount = parseInt(
+      document.querySelector(`#TransferMoney #Amount`).value
+    );
+    const pin = parseInt(document.querySelector(`#TransferMoney #Pin`).value);
+    const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
+    if (
+      userNum.length === 11 &&
+      amount > 0 &&
+      amount <= currentMoney &&
+      pin === 2025
+    ) {
+      document.querySelector(`#Money`).innerText = currentMoney - amount;
+      document.querySelector(`#UserAccNum`).value = ``;
+      document.querySelector(`#TransferMoney #Amount`).value = ``;
+      document.querySelector(`#TransferMoney #Pin`).value = ``;
+      alert(`Amount Transfered`);
+    } else {
+      let p = document.createElement(`p`);
+      if (userNum.length !== 11) {
+        p.innerText = `Invalid User Number`;
+      } else if (isNaN(amount) || amount < 1) {
+        p.innerText = `Invalid Amount`;
+      } else if (pin !== 2025) {
+        p.innerText = `Invalid PIN`;
+      } else {
+        p.innerText = `Insufficient Balance`;
+      }
+      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
+      document.querySelector(`#TransferMoney form`).appendChild(p);
+    }
+  });
