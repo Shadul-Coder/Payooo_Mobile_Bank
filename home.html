@@ -15,9 +15,9 @@
     <title>Payooo - Mobile Bank</title>
   </head>
   <body class="bg-[#f4f5f7]">
-    <section id="home" class="bg-white max-w-sm mx-auto pb-3.5 rounded-b-2xl">
+    <section class="bg-white max-w-sm mx-auto pb-3 rounded-b-2xl">
       <nav class="py-3 border-b-1 border-[#0808081a]">
-        <div class="w-[95%] mx-auto flex justify-between items-center">
+        <div class="w-[93%] mx-auto flex justify-between items-center">
           <div class="flex items-center gap-1">
             <img src="Images/Logo.png" alt="Payooo Logo" class="h-[50px]" />
             <div>
@@ -34,7 +34,7 @@
           </button>
         </div>
       </nav>
-      <div class="w-[95%] mx-auto">
+      <div class="w-[93%] mx-auto">
         <h1 class="text-2xl font-bold mt-7 mb-3">🔥 Welcome to Payooo!</h1>
         <p class="text-[#08080880] text-[15px]">
           Enjoy easy financial services with low cashout fees and fast
@@ -99,12 +99,12 @@
           id="Bank"
           class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none appearance-none"
         >
-          <option selected disabled value="">Select Bank</option>
-          <option value="">Islami Bank Bangladesh</option>
-          <option value="">BRAC Bank Limited</option>
-          <option value="">Dutch-Bangla Bank</option>
-          <option value="">Sonali Bank Limited</option>
-          <option value="">City Bank Limited</option>
+          <option selected disabled value="Select Bank">Select Bank</option>
+          <option value="Islami Bank Bangladesh">Islami Bank Bangladesh</option>
+          <option value="BRAC Bank Limited">BRAC Bank Limited</option>
+          <option value="Dutch-Bangla Bank">Dutch-Bangla Bank</option>
+          <option value="Sonali Bank Limited">Sonali Bank Limited</option>
+          <option value="City Bank Limited">City Bank Limited</option>
         </select>
         <i class="fa-solid fa-angle-down absolute right-11.5 top-10.5"></i>
         <div class="w-[100%]">
@@ -252,7 +252,7 @@
         <input
           type="submit"
           value="Get Bonus"
-          id="login-button"
+          id="GetBonusSubmit"
           class="w-[100%] bg-[#0874f2] text-white font-semibold py-3 rounded-3xl active:bg-[#0874f2bf]"
         />
       </form>
@@ -267,12 +267,16 @@
           id="Bill"
           class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none appearance-none"
         >
-          <option selected disabled value="">Select Bill Type</option>
-          <option value="">Electricity Service Bill</option>
-          <option value="">Water Utility Bill</option>
-          <option value="">Gas Supply Bill</option>
-          <option value="">Internet Service Bill</option>
-          <option value="">Mobile Phone Bill</option>
+          <option selected disabled value="Select Bill Type">
+            Select Bill Type
+          </option>
+          <option value="Electricity Service Bill">
+            Electricity Service Bill
+          </option>
+          <option value="Water Utility Bill">Water Utility Bill</option>
+          <option value="Gas Supply Bill">Gas Supply Bill</option>
+          <option value="Internet Service Bill">Internet Service Bill</option>
+          <option value="Mobile Phone Bill">Mobile Phone Bill</option>
         </select>
         <i class="fa-solid fa-angle-down absolute right-11.5 top-10.5"></i>
         <div class="w-[100%]">
@@ -281,7 +285,7 @@
           ><br />
           <input
             type="number"
-            id="AccNum"
+            id="BillerAccNum"
             placeholder="Enter account number"
             class="w-[100%] text-[15px] bg-[#f4f5f7] px-5 py-3 rounded-3xl mb-3 focus:outline-none"
           />
@@ -313,6 +317,10 @@
         />
       </form>
     </section>
+    <section
+      id="Transaction"
+      class="BTNMenu hidden max-w-sm w-[90%] my-10 mx-auto"
+    ></section>
     <script src="JS/home.js"></script>
   </body>
 </html>

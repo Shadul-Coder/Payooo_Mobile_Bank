@@ -6,15 +6,14 @@ document
     if (invalid) {
       document.querySelector(`form`).removeChild(invalid);
     }
-    const number = `01990199709`;
     const pin = `2025`;
     let inputNumber = document.querySelector(`#Number`).value;
     let inputPin = document.querySelector(`#Pin`).value;
-    if (inputNumber === number && inputPin === pin) {
+    if (inputNumber.length === 11 && inputPin === pin) {
       window.location.href = `home.html`;
     } else {
       let p = document.createElement(`p`);
-      if (inputNumber !== number) {
+      if (inputNumber.length !== 11) {
         p.innerText = `Invalid Number`;
       } else {
         p.innerText = `Invalid PIN`;

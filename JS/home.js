@@ -1,129 +1,123 @@
-document
-  .querySelector(`#AddMoneyBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
-    }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    const addMoneyMenu = document.querySelector(`#AddMoney`);
-    addMoneyMenu.classList.remove(`hidden`);
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
-  });
+const transactions = [];
 
-document
-  .querySelector(`#CashOutBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
-    }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    const cashOutMenu = document.querySelector(`#CashOut`);
-    cashOutMenu.classList.remove(`hidden`);
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
-  });
+function menuHide(id) {
+  const menuList = document.querySelectorAll(`.BTNMenu`);
+  for (menu of menuList) {
+    menu.classList.add(`hidden`);
+  }
+  const addMoneyMenu = document.querySelector(id);
+  addMoneyMenu.classList.remove(`hidden`);
+}
+
+function selectTag(id) {
+  const btnList = document.querySelectorAll(`.BTN`);
+  for (btn of btnList) {
+    btn.style.borderColor = "#0808081a";
+    btn.style.backgroundColor = "white";
+    btn.style.color = "black";
+  }
+  let button = document.querySelector(id);
+  button.style.borderColor = "#0874f2";
+  button.style.backgroundColor = "#0874f20d";
+  button.style.color = "#0874f2";
+}
+
+document.querySelector(`#AddMoneyBTN`).addEventListener(`click`, function () {
+  menuHide(`#AddMoney`);
+  selectTag(`#AddMoneyBTN`);
+});
+
+document.querySelector(`#CashOutBTN`).addEventListener(`click`, function () {
+  menuHide(`#CashOut`);
+  selectTag(`#CashOutBTN`);
+});
 
 document
   .querySelector(`#TransferMoneyBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
-    }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    const transferMoneyMenu = document.querySelector(`#TransferMoney`);
-    transferMoneyMenu.classList.remove(`hidden`);
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
+  .addEventListener(`click`, function () {
+    menuHide(`#TransferMoney`);
+    selectTag(`#TransferMoneyBTN`);
   });
 
-document
-  .querySelector(`#GetBonusBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
-    }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    const getBonusMenu = document.querySelector(`#GetBonus`);
-    getBonusMenu.classList.remove(`hidden`);
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
-  });
+document.querySelector(`#GetBonusBTN`).addEventListener(`click`, function () {
+  menuHide(`#GetBonus`);
+  selectTag(`#GetBonusBTN`);
+});
 
-document
-  .querySelector(`#PayBillBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
-    }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    const payBillMenu = document.querySelector(`#PayBill`);
-    payBillMenu.classList.remove(`hidden`);
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
-  });
+document.querySelector(`#PayBillBTN`).addEventListener(`click`, function () {
+  menuHide(`#PayBill`);
+  selectTag(`#PayBillBTN`);
+});
 
 document
   .querySelector(`#TransactionBTN`)
-  .addEventListener(`click`, function (event) {
-    const menuList = document.querySelectorAll(`.BTNMenu`);
-    for (menu of menuList) {
-      menu.classList.add(`hidden`);
+  .addEventListener(`click`, function () {
+    menuHide(`#Transaction`);
+    selectTag(`#TransactionBTN`);
+    const transactionMenu = document.querySelector(`#Transaction`);
+    transactionMenu.innerHTML = `
+    <div class="flex justify-between items-center">
+      <h1 class="font-semibold ml-3 mb-3">Transaction History</h1>
+      <p class="text-[13px] text-[#08080880] mr-3 mb-3">View All</p>
+    </div>
+    `;
+    for (const history of transactions) {
+      const box = document.createElement(`div`);
+      box.innerHTML = `
+      <div class="historyBox bg-white mb-3 px-5 py-3 rounded-2xl flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="bg-[#f4f5f7] p-3 rounded-full">
+            <img src="${history.imglink}" alt="">
+          </div>
+          <div>
+            <h3 class="text-[13px]">${history.type}</h3>
+            <p class="text-[13px]">${history.date}</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+      `;
+      transactionMenu.appendChild(box);
     }
-    const btnList = document.querySelectorAll(`.BTN`);
-    for (btn of btnList) {
-      btn.style.borderColor = "#0808081a";
-      btn.style.color = "black";
-    }
-    event.currentTarget.style.borderColor = "#0874f2";
-    event.currentTarget.style.color = "#0874f2";
   });
 
 document.querySelector(`#LogOut`).addEventListener(`click`, function () {
   window.location.href = "index.html";
 });
 
+function removeInvalid(element, parent) {
+  const invalid = document.querySelector(element);
+  if (invalid) {
+    document.querySelector(parent).removeChild(invalid);
+  }
+}
+
+function getValue(element) {
+  return document.querySelector(element).value;
+}
+
+function removeValue(element) {
+  document.querySelector(element).value = ``;
+}
+
+function addInvalid(p, parent) {
+  p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
+  document.querySelector(parent).appendChild(p);
+}
+
+function getTime() {
+  return new Date().toLocaleTimeString();
+}
+
 document
   .querySelector(`#AddMoneySubmit`)
   .addEventListener(`click`, function (event) {
     event.preventDefault();
-
-    const invalid = document.querySelector(`#AddMoney form p`);
-    if (invalid) {
-      document.querySelector(`#AddMoney form`).removeChild(invalid);
-    }
-    const bank =
-      document.querySelector(`#Bank`).options[
-        document.querySelector(`#Bank`).selectedIndex
-      ].text;
-    const bankAccNum = document.querySelector(`#BankAccNum`).value;
-    const amount = parseInt(document.querySelector(`#AddMoney #Amount`).value);
-    const pin = parseInt(document.querySelector(`#AddMoney #Pin`).value);
+    removeInvalid(`#AddMoney form p`, `#AddMoney form`);
+    const bank = getValue(`#Bank`);
+    const bankAccNum = getValue(`#BankAccNum`);
+    const amount = parseInt(getValue(`#AddMoney #Amount`));
+    const pin = parseInt(getValue(`#AddMoney #Pin`));
     if (
       bank !== `Select Bank` &&
       bankAccNum.length === 11 &&
@@ -133,9 +127,15 @@ document
       const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
       document.querySelector(`#Money`).innerText = currentMoney + amount;
       document.querySelector(`#Bank`).selectedIndex = 0;
-      document.querySelector(`#BankAccNum`).value = ``;
-      document.querySelector(`#AddMoney #Amount`).value = ``;
-      document.querySelector(`#AddMoney #Pin`).value = ``;
+      removeValue(`#BankAccNum`);
+      removeValue(`#AddMoney #Amount`);
+      removeValue(`#AddMoney #Pin`);
+      const addmoney = {
+        type: `Add Money`,
+        date: getTime(),
+        imglink: `Images/AddMoney.png`,
+      };
+      transactions.push(addmoney);
       alert(`Amount Added`);
     } else {
       let p = document.createElement(`p`);
@@ -148,8 +148,7 @@ document
       } else {
         p.innerText = `Invalid PIN`;
       }
-      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
-      document.querySelector(`#AddMoney form`).appendChild(p);
+      addInvalid(p, `#AddMoney form`);
     }
   });
 
@@ -157,13 +156,10 @@ document
   .querySelector(`#CashOutSubmit`)
   .addEventListener(`click`, function (event) {
     event.preventDefault();
-    const invalid = document.querySelector(`#CashOut form p`);
-    if (invalid) {
-      document.querySelector(`#CashOut form`).removeChild(invalid);
-    }
-    const agentNum = document.querySelector(`#AgentNum`).value;
-    const amount = parseInt(document.querySelector(`#CashOut #Amount`).value);
-    const pin = parseInt(document.querySelector(`#CashOut #Pin`).value);
+    removeInvalid(`#CashOut form p`, `#CashOut form`);
+    const agentNum = getValue(`#AgentNum`);
+    const amount = parseInt(getValue(`#CashOut #Amount`));
+    const pin = parseInt(getValue(`#CashOut #Pin`));
     const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
     if (
       agentNum.length === 11 &&
@@ -172,9 +168,15 @@ document
       pin === 2025
     ) {
       document.querySelector(`#Money`).innerText = currentMoney - amount;
-      document.querySelector(`#AgentNum`).value = ``;
-      document.querySelector(`#CashOut #Amount`).value = ``;
-      document.querySelector(`#CashOut #Pin`).value = ``;
+      removeValue(`#AgentNum`);
+      removeValue(`#CashOut #Amount`);
+      removeValue(`#CashOut #Pin`);
+      const cashout = {
+        type: `Cash Out`,
+        date: getTime(),
+        imglink: `Images/CashOut.png`,
+      };
+      transactions.push(cashout);
       alert(`Amount Withdrawn`);
     } else {
       let p = document.createElement(`p`);
@@ -187,8 +189,7 @@ document
       } else {
         p.innerText = `Insufficient Balance`;
       }
-      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
-      document.querySelector(`#CashOut form`).appendChild(p);
+      addInvalid(p, `#CashOut form`);
     }
   });
 
@@ -196,15 +197,10 @@ document
   .querySelector(`#TransferSubmit`)
   .addEventListener(`click`, function (event) {
     event.preventDefault();
-    const invalid = document.querySelector(`#TransferMoney form p`);
-    if (invalid) {
-      document.querySelector(`#TransferMoney form`).removeChild(invalid);
-    }
-    const userNum = document.querySelector(`#UserAccNum`).value;
-    const amount = parseInt(
-      document.querySelector(`#TransferMoney #Amount`).value
-    );
-    const pin = parseInt(document.querySelector(`#TransferMoney #Pin`).value);
+    removeInvalid(`#TransferMoney form p`, `#TransferMoney form`);
+    const userNum = getValue(`#UserAccNum`);
+    const amount = parseInt(getValue(`#TransferMoney #Amount`));
+    const pin = parseInt(getValue(`#TransferMoney #Pin`));
     const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
     if (
       userNum.length === 11 &&
@@ -213,9 +209,15 @@ document
       pin === 2025
     ) {
       document.querySelector(`#Money`).innerText = currentMoney - amount;
-      document.querySelector(`#UserAccNum`).value = ``;
-      document.querySelector(`#TransferMoney #Amount`).value = ``;
-      document.querySelector(`#TransferMoney #Pin`).value = ``;
+      removeValue(`#UserAccNum`);
+      removeValue(`#TransferMoney #Amount`);
+      removeValue(`#TransferMoney #Pin`);
+      const transfermoney = {
+        type: `Transfer Money`,
+        date: getTime(),
+        imglink: `Images/TransferMoney.png`,
+      };
+      transactions.push(transfermoney);
       alert(`Amount Transfered`);
     } else {
       let p = document.createElement(`p`);
@@ -228,8 +230,33 @@ document
       } else {
         p.innerText = `Insufficient Balance`;
       }
-      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
-      document.querySelector(`#TransferMoney form`).appendChild(p);
+      addInvalid(p, `#TransferMoney form`);
+    }
+  });
+
+document
+  .querySelector(`#GetBonusSubmit`)
+  .addEventListener(`click`, function (event) {
+    event.preventDefault();
+    removeInvalid(`#GetBonus form p`, `#GetBonus form`);
+    const coupon = getValue(`#Coupon`);
+    if (coupon === `Payooo2025`) {
+      const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
+      document.querySelector(`#Money`).innerText = currentMoney + 2025;
+      removeValue(`#Coupon`);
+      const gotcoupon = {
+        type: `Coupon Bonus`,
+        date: getTime(),
+        imglink: `Images/GetBonus.png`,
+      };
+      transactions.push(gotcoupon);
+      alert(`$2025 Bonus Received`);
+    } else {
+      let p = document.createElement(`p`);
+      if (coupon !== `Payooo2025`) {
+        p.innerText = `Invalid or Expired Coupon`;
+      }
+      addInvalid(p, `#GetBonus form`);
     }
   });
 
@@ -237,17 +264,11 @@ document
   .querySelector(`#PayBillSubmit`)
   .addEventListener(`click`, function (event) {
     event.preventDefault();
-    const invalid = document.querySelector(`#PayBill form p`);
-    if (invalid) {
-      document.querySelector(`#PayBill form`).removeChild(invalid);
-    }
-    const bill =
-      document.querySelector(`#Bill`).options[
-        document.querySelector(`#Bill`).selectedIndex
-      ].text;
-    const billerAccNum = document.querySelector(`#AccNum`).value;
-    const amount = parseInt(document.querySelector(`#PayBill #Amount`).value);
-    const pin = parseInt(document.querySelector(`#PayBill #Pin`).value);
+    removeInvalid(`#PayBill form p`, `#PayBill form`);
+    const bill = getValue(`#Bill`);
+    const billerAccNum = getValue(`#BillerAccNum`);
+    const amount = parseInt(getValue(`#PayBill #Amount`));
+    const pin = parseInt(getValue(`#PayBill #Pin`));
     const currentMoney = parseInt(document.querySelector(`#Money`).innerText);
     if (
       bill !== `Select Bill Type` &&
@@ -258,9 +279,15 @@ document
     ) {
       document.querySelector(`#Money`).innerText = currentMoney - amount;
       document.querySelector(`#Bill`).selectedIndex = 0;
-      document.querySelector(`#AccNum`).value = ``;
-      document.querySelector(`#PayBill #Amount`).value = ``;
-      document.querySelector(`#PayBill #Pin`).value = ``;
+      removeValue(`#BillerAccNum`);
+      removeValue(`#PayBill #Amount`);
+      removeValue(`#PayBill #Pin`);
+      const paybill = {
+        type: `Pay Bill`,
+        date: getTime(),
+        imglink: `Images/PayBill.png`,
+      };
+      transactions.push(paybill);
       alert(`Bill Payed Successfully`);
     } else {
       let p = document.createElement(`p`);
@@ -275,7 +302,6 @@ document
       } else {
         p.innerText = `Insufficient Balance`;
       }
-      p.classList.add("text-[15px]", "text-red-500", "text-center", "mt-3");
-      document.querySelector(`#PayBill form`).appendChild(p);
+      addInvalid(p, `#PayBill form`);
     }
   });
